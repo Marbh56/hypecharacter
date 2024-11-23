@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/marbh56/hypecharacter/internal/database"
 	"log"
 	"net/http"
@@ -46,7 +47,7 @@ func main() {
 	router := chi.NewRouter()
 
 	router.Use(cors.Handler(cors.Options{
-		AllowedOrigins:   []string{"https://*"},
+		AllowedOrigins:   []string{"https://*", "http://*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"*"},
 		ExposedHeaders:   []string{"Link"},
@@ -66,7 +67,7 @@ func main() {
 		Handler: router,
 		Addr:    ":" + portString,
 	}
-
+	fmt.Println("Listening on port " + portString)
 	err = srv.ListenAndServe()
 	if err != nil {
 		log.Fatal(err)
