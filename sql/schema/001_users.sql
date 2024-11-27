@@ -4,7 +4,9 @@
         id UUID PRIMARY KEY,
         created_at TIMESTAMP NOT NULL,
         updated_at TIMESTAMP NOT NULL,
-        name TEXT NOT NULL
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password_hash VARCHAR(255) NOT NULL
     );
 
 -- +goose Down

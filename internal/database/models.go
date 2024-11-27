@@ -10,10 +10,28 @@ import (
 	"github.com/google/uuid"
 )
 
+type Character struct {
+	CharacterID   uuid.UUID
+	UserID        uuid.UUID
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	CharacterName string
+	Str           int32
+	Dex           int32
+	Con           int32
+	Int           int32
+	Wis           int32
+	Cha           int32
+	Save          int32
+	Ac            int32
+	Mv            int32
+}
+
 type User struct {
-	ID        uuid.UUID
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	Name      string
-	ApiKey    string
+	ID           uuid.UUID
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
+	Name         string
+	Email        string
+	PasswordHash string
 }
